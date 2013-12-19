@@ -1,0 +1,24 @@
+block b-guitar {
+
+    tag: 'guitar'
+
+    js: { name: 'explorer' }
+
+    content: [
+        {
+            elem: 'label',
+            tag: 'label',
+            content: 'Нота'
+        },
+        {
+            block: 'input',
+            mix: [{ block: 'b-guitar', elem: 'note' }]
+        },
+        {
+            block: 'button',
+            content: 'РУБАТЬ!',
+            mix: [{ block: 'b-guitar', elem: 'start-action' }]
+        }
+    ]
+
+}
