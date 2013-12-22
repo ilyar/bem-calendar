@@ -1,6 +1,6 @@
 ({
     block: 'page',
-    title: 'Title of the page',
+    title: 'BEM-Calendar',
     favicon: '/favicon.ico',
     head: [
         { elem: 'css', url: '_index.css', ie: false },
@@ -8,24 +8,8 @@
         { elem: 'meta', attrs: { name: 'description', content: '' }}
     ],
     content:[
-        {
-            block: 'header',
-            content: [
-                'header content goes here'
-            ]
-        },
-        {
-            block: 'content',
-            content: [
-                'main content'
-            ]
-        },
-        {
-            block: 'footer',
-            content: [
-                'footer content goes here'
-            ]
-        },
+        { block: 'b-day-planner' },
+        { elem: 'js', url: '_index.bemhtml.js' },
         { elem: 'js', url: '_index.js' }
     ]
 })

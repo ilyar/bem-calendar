@@ -1,0 +1,25 @@
+block b-temp {
+
+    js: { name: 'explorer' }
+
+    content: [
+
+        {
+            block: 'input',
+            mix: [{ block: 'b-temp', elem: 'note' }]
+        },
+        {
+            block: 'button',
+            content: 'РУБАТЬ!',
+            mix: [{ block: 'b-temp', elem: 'start-action' }]
+        },
+
+        {
+            block: 'b-dayField',
+
+        }
+
+
+    ]
+
+}

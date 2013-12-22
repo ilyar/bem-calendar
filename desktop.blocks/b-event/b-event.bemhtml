@@ -1,0 +1,6 @@
+block b-event {
+
+    tag: 'li'
+
+    content: this.ctx.name
+}

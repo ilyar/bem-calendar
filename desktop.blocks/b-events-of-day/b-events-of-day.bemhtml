@@ -1,0 +1,12 @@
+block b-events-of-day {
+
+    js: true
+
+    content: [
+        { elem: 'title', content: 'Список событий: ' },
+        {
+            elem: 'list',
+            tag: 'ul'
+        }
+    ]
+}

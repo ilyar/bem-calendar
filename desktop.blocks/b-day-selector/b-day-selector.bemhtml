@@ -1,0 +1,29 @@
+block b-day-selector {
+
+    default: {
+
+        return applyNext(this.date = this.ctx.date || new Date());
+    }
+
+    js: {
+        currentDate: this.date
+    }
+
+    content: [
+         {
+                block: 'button',
+                content: '<',
+                mix:[{ block: 'b-day-selector', elem: 'prev-day' }]
+         },
+         {
+                elem: 'current-day',
+                content: this.date.getDate() + '/' + (this.date.getMonth() + 1)
+         },
+         {
+                block: 'button',
+                content: '>',
+                mix:[{ block: 'b-day-selector', elem: 'next-day' }]
+         }
+    ]
+
+}

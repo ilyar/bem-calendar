@@ -1,0 +1,18 @@
+block b-day-planner {
+
+    js: true
+
+    content: [
+        {
+           elem: 'title',
+           content: 'Планировщик событий'
+        },
+        {
+            block: 'b-day-selector',
+            date: new Date()
+        },
+        { block: 'b-new-event' },
+        { block: 'b-events-of-day' }
+    ]
+
+}

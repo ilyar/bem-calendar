@@ -1,6 +1,6 @@
 modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, dom, events, BEMDOM) {
     
-    BEMDOM.decl('b-guitar', {
+    BEMDOM.decl('b-temp', {
 
         onSetMod: {
 

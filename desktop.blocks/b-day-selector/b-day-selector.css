@@ -1,0 +1,17 @@
+.b-day-selector
+{
+    background-color: #f0f0f0;
+    width: 340px;
+    height: 100px;
+    display: inline-block;
+    padding-left: 160px;
+}
+.b-day-selector__current-day
+{
+    display: inline-block;
+    height: 50px;
+    font-size: 32px;
+    margin: 20px 15px;
+    color: #505050;
+}
+

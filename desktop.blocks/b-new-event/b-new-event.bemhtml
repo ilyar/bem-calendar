@@ -1,0 +1,19 @@
+block b-new-event {
+
+    js: true
+
+    content: [
+         {
+             block: 'input',
+             mix:[{ block: 'b-new-event', elem: 'event-name' }]
+         },
+         {
+
+             block: 'button',
+             content: 'Добавить событие',
+             mix:[{ block: 'b-new-event', elem: 'add-button' }]
+
+         }
+    ]
+
+}

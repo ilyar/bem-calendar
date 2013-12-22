@@ -1,0 +1,12 @@
+.b-temp {
+
+   background-color: greenyellow;
+   width: 500px;
+   margin-left: 100px;
+
+
+}
+.b-temp__start-action
+{
+    background-color: #f00;
+}

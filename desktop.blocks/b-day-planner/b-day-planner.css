@@ -1,0 +1,17 @@
+.b-day-planner
+{
+   width: 500px;
+   margin-left: 300px;
+   background-color: #505050;
+}
+
+.b-day-planner__title
+{
+    color: #ff7518;
+    font-size: 25px;
+    font-weight: lighter;
+    font-family: "Georgia";
+    box-shadow: inset 0 -3px 1px 0 #ff7518;
+    margin: 0;
+    padding: 13px;
+}
