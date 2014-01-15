@@ -5,19 +5,16 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
         onSetMod: {
 
             js: function() {
-
                 var date = new Date(this.params.currentDate);
 
                 this.findBlockOn('prev-day', 'button').on('click', function() {
                     date.setDate(date.getDate() - 1);
                     this._updateCurrent(date);
-                     this.trigger('update-date', { name: date });
                 }, this);
 
                 this.findBlockOn('next-day', 'button').on('click', function() {
                     date.setDate(date.getDate() + 1);
                     this._updateCurrent(date);
-                    this.trigger('update-date', { name: date });
                 }, this);
 
             }
@@ -25,7 +22,7 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
         _updateCurrent: function(current) {
             BEMDOM.update(this.elem('current-day'), current.getDate() + '/' + (current.getMonth() + 1));
-
+            this.trigger('change-date', { current: current });
         }
     });
 
