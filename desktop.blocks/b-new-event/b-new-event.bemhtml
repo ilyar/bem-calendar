@@ -4,6 +4,32 @@ block b-new-event {
 
     content: [
          {
+             elem: 'title-time',
+             content: 'Время'
+
+         },
+         {
+             elem: 'title-event',
+             content: 'Событие'
+
+         },
+         {
+             block: 'input',
+             mix:[{ block: 'b-new-event', elem: 'event-hours' }]
+
+         },
+
+         {   elem: 'char',
+             content: ':'
+         },
+
+         {
+             block: 'input',
+             mix:[{ block: 'b-new-event', elem: 'event-minutes' }]
+
+         },
+
+         {
              block: 'input',
              mix:[{ block: 'b-new-event', elem: 'event-name' }]
          },
@@ -14,6 +40,7 @@ block b-new-event {
              mix:[{ block: 'b-new-event', elem: 'add-button' }]
 
          }
+
     ]
 
 }

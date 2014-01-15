@@ -2,7 +2,38 @@
 {
     background-color: #f0f0f0;
 }
-.b-new-event__click-add
+.b-new-event__add-button
 {
-    margin-left: 75px;
+    margin-left: 10px;
 }
+.b-new-event__event-hours .input__control
+{
+    width: 20px;
+    margin-left: 10px;
+}
+.b-new-event__event-minutes .input__control
+{
+    width: 20px;
+    margin-right: 10px;
+}
+.b-new-event__title-time
+{
+    display: inline-block;
+    color: #505050;
+    margin-left: 10px;
+    margin-right: 88px;
+
+}
+.b-new-event__title-event
+{
+    display: inline-block;
+    color: #505050;
+    margin-right: 275px;
+
+}
+.b-new-event__char
+{
+    display: inline-block;
+
+}
+

@@ -2,18 +2,20 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
     BEMDOM.decl('b-day-planner', {
 
+
         onSetMod: {
 
             js: function() {
-                var events = this.findBlockInside('b-events-of-day');
-
+                var bEvents = this.findBlockInside('b-events-of-day'),
+                    bNewEvents = this.findBlockInside('b-new-event');
                 this.findBlockInside('b-new-event').on('new-event', function(e, data) {
-                    events.addEvent(data.name);
+                    bEvents.addEvent(data.name);
                 }, this);
-
+                this.findBlockInside('b-day-selector').on('update-date', function(e,data){
+                    bNewEvents.addDate(data.name);
+                }, this)
             }
         }
-
     });
 
     provide(BEMDOM);
