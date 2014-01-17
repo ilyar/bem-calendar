@@ -12,16 +12,35 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
                 this.findBlockInside('b-day-selector').on('change-date', function(e, data) {
                     this.current = data.current;
+                    this.updateEvent(this.current);     // Прорисовка при нажатии кнопок вправо/влево
+                }, this);
+
+                this.on('update-list-event', function(e, data)  {
+                    this.dayEventsBlock.addEvent(data);
                 }, this);
 
                 var saved = localStorage.getItem('bem-calendar-events');
 
                 this.events = saved ? JSON.parse(saved) : {};
                 this.current = new Date();
+                this.updateEvent();     // Прорисовка при загрузке браузера
 
                 // убрать
-                block = this;
+              //  block = this;
+
+
             }
+        },
+
+        updateEvent: function(current) {
+
+            if (!current) {
+                current = this.current;
+            }
+
+            var key = (current.getDate() + '/' + current.getMonth());
+
+            this.trigger('update-list-event', { event: this.events,  key: key });
         },
 
         onAddEvent: function(e, data) {
@@ -32,11 +51,11 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
             this.events[key].push(data);
             this._sort(this.events[key]);
             localStorage.setItem('bem-calendar-events', JSON.stringify(this.events));
+            this.trigger('update-list-event', { event: this.events,  key: key });
         },
 
         _sort: function(array) {
             if (array.length == 1) return;
-
             for (var i = array.length - 1; i > 0; i--) {
                 for (var j = 0; j < i; j++) {
                     var valLeft = parseInt((array[j]['hours'] + '' + array[j]['minutes'])),

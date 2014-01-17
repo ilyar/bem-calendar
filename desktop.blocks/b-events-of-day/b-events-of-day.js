@@ -1,14 +1,32 @@
 modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, dom, events, BEMDOM) {
 
     BEMDOM.decl('b-events-of-day', {
-        updateEvent: function() {
-             BEMDOM.append(this.findElem('list'), '');
+
+        addEvent: function(events) {
+            var listElem = this.findElem('list'),
+                list = events.event[events.key];
+
+            BEMDOM.update(listElem, '');
+
+            BEMDOM.append(listElem, BEMHTML.apply(
+                this._mapForBEMHTML(list)
+            ));
         },
-        addEvent: function(event) {
-            BEMDOM.append(this.findElem('list'), BEMHTML.apply({
-                block: 'b-event',
-                name: event['15/1'][0]['strEvent']
-            }));
+
+        _mapForBEMHTML: function(list) {
+
+            if (!list) {
+                list = [{ name: 'На текущий день событий не запланировано', hours: '', minutes: '' }];
+            }
+
+            var content = list.map(function(item) {
+                    return {
+                        block: 'b-event',
+                        cont: item['hours'] + ':' + item['minutes'] + ' ' + item['name']
+                    };
+                });
+
+            return content;
         }
     });
 
