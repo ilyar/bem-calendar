@@ -12,46 +12,30 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
                 this.findBlockInside('b-day-selector').on('change-date', function(e, data) {
                     this.current = data.current;
-                    this.updateEvent(this.current);     // Прорисовка при нажатии кнопок вправо/влево
-                }, this);
-
-                this.on('update-list-event', function(e, data)  {
-                    this.dayEventsBlock.addEvent(data);
+                    this.dayEventsBlock.renderEvents(this._getEventsForCurrentDay());
                 }, this);
 
                 var saved = localStorage.getItem('bem-calendar-events');
 
                 this.events = saved ? JSON.parse(saved) : {};
                 this.current = new Date();
-                this.updateEvent();     // Прорисовка при загрузке браузера
-
-                // убрать
-              //  block = this;
-
-
+                this.dayEventsBlock.renderEvents(this._getEventsForCurrentDay());
             }
-        },
-
-        updateEvent: function(current) {
-
-            if (!current) {
-                current = this.current;
-            }
-
-            var key = (current.getDate() + '/' + current.getMonth());
-
-            this.trigger('update-list-event', { event: this.events,  key: key });
         },
 
         onAddEvent: function(e, data) {
+            var events = this._getEventsForCurrentDay();
+
+            events.push(data);
+            this._sort(events);
+            localStorage.setItem('bem-calendar-events', JSON.stringify(this.events));
+            this.dayEventsBlock.renderEvents(events);
+        },
+
+        _getEventsForCurrentDay: function() {
             var key = this.current.getDate() + '/' + this.current.getMonth();
 
-            this.events[key] || (this.events[key] = []);
-
-            this.events[key].push(data);
-            this._sort(this.events[key]);
-            localStorage.setItem('bem-calendar-events', JSON.stringify(this.events));
-            this.trigger('update-list-event', { event: this.events,  key: key });
+            return this.events[key] || (this.events[key] = []);
         },
 
         _sort: function(array) {
