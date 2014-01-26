@@ -31,6 +31,7 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
             localStorage.setItem('bem-calendar-events', JSON.stringify(this.events));
             this.dayEventsBlock.renderEvents(events);
         },
+
         /**
          * При помощи ключа: 'число / месяц' хеша Events возвращается необходимый массив
          * @returns {Array} Массив с событиями на текущий день
@@ -41,13 +42,15 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
             return this.events[key] || (this.events[key] = []);
         },
+
         /**
          * Сортировка элемнтов массива по времени методом пузырька
          * @param  {Array} array -  массив с событиями на текущий день
          * @private
          */
         _sort: function(array) {
-         if (array.length == 1) return;
+            if (array.length == 1) return;
+
             for (var i = array.length - 1; i > 0; i--) {
                 for (var j = 0; j < i; j++) {
                     var valLeft = parseInt((array[j]['hours'] + '' + array[j]['minutes'])),
@@ -60,7 +63,7 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
                     }
                 }
             }
-         }
+        }
 
     });
 

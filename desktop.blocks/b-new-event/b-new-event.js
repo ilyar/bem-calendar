@@ -18,49 +18,21 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
             var minutes = this.minutesInput.getVal(),
                 hours = this.hoursInput.getVal(),
                 name = this.nameInput.getVal(),
-                hoursValid = !hours || (0 >= parseInt(hours)) || (parseInt(hours) >= 24),
-                minutesValid = !minutes || (0 >= parseInt(minutes)) || (parseInt(minutes) >= 60),
-                a, b, c;
+                // несемантично
+                hoursValid = !hours || (parseInt(hours) <= 0) || (parseInt(hours) >= 24),
+                minutesValid = !minutes || (parseInt(minutes) <= 0) || (parseInt(minutes) >= 60);
 
-            if (hoursValid) {
+            this.setMod(this.elem('event-hours'), 'color', hoursValid ? 'red' : '');
+            this.minutesInput.setMod('color', minutesValid ? 'red' : '');
+            this.nameInput.setMod('color', !name ? 'red' : '');
 
-                this.hoursInput.setMod('color', 'red');
-                a = false;
-            }
-            else {
-
-                this.hoursInput.delMod('color');
-                a = true;
-            }
-            if (minutesValid) {
-
-                this.minutesInput.setMod('color', 'red');
-                b = false;
-            }
-            else {
-
-                this.minutesInput.delMod('color');
-                b = true;
-            }
-
-            if (!name) {
-
-                this.nameInput.setMod('color', 'red');
-                c = false;
-            }
-            else {
-
-                this.nameInput.delMod('color');
-                c = true;
-            }
-            if (a && b && c) {
-
+            !hoursValid && !minutesValid && name &&
                 this.trigger('new-event', {
                     minutes: minutes,
                     hours: hours,
                     name: name
                 });
-            }
+
         }
     });
 
