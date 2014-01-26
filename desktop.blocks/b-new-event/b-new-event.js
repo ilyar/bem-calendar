@@ -17,12 +17,43 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
         addEvent: function() {
             var minutes = this.minutesInput.getVal(),
                 hours = this.hoursInput.getVal(),
-                name = this.nameInput.getVal();
+                name = this.nameInput.getVal(),
+                hoursValid = !hours || (0 >= parseInt(hours)) || (parseInt(hours) >= 24),
+                minutesValid = !minutes || (0 >= parseInt(minutes)) || (parseInt(minutes) >= 60),
+                a, b, c;
 
-            if (!(minutes && hours && name)) {
-                alert('Необходимо ввести недостающие данные в поле "Время" или "Событие"');
+            if (hoursValid) {
 
-            } else {
+                this.hoursInput.setMod('color', 'red');
+                a = false;
+            }
+            else {
+
+                this.hoursInput.delMod('color');
+                a = true;
+            }
+            if (minutesValid) {
+
+                this.minutesInput.setMod('color', 'red');
+                b = false;
+            }
+            else {
+
+                this.minutesInput.delMod('color');
+                b = true;
+            }
+
+            if (!name) {
+
+                this.nameInput.setMod('color', 'red');
+                c = false;
+            }
+            else {
+
+                this.nameInput.delMod('color');
+                c = true;
+            }
+            if (a && b && c) {
 
                 this.trigger('new-event', {
                     minutes: minutes,
@@ -31,7 +62,6 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
                 });
             }
         }
-
     });
 
     provide(BEMDOM);

@@ -14,9 +14,9 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
         },
 
         /**
-         *
-         * @param list
-         * @returns {*}
+         *  Преобразование хеша, хранящего время и  событие,  в BEMJSON.
+         * @param {Array} list - массив событий для текущего дня
+         * @returns {BEMJSON}
          * @private
          */
         _getEventsBEMJSON: function(list) {
@@ -33,6 +33,16 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
                 };
             });
         }
+    },
+    {
+        live: function() {
+
+             this.liveBindTo('list', 'click', function(){
+
+                 alert('ПРивет, братишка');
+             })
+        }
+
     });
 
     provide(BEMDOM);

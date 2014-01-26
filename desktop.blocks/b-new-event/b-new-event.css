@@ -15,6 +15,8 @@
 {
     width: 20px;
     margin-right: 10px;
+
+
 }
 .b-new-event__title-time
 {
@@ -35,5 +37,15 @@
 {
     display: inline-block;
 
+}
+
+.input_color_red .input__control
+{
+    color: #555;
+    border-bottom: 1px;
+    border-bottom-color: red;
+    border-bottom-style: solid;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 0 red;
 }
 
