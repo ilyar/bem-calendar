@@ -1,0 +1,47 @@
+.b-edit-event {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.b-edit-event__event-box {
+
+    background-color: #f5f5f5;
+    width: 300px;
+    position: absolute;
+    margin-left: 38%;
+    margin-top: 10%;
+    border-radius: 3px;
+}
+
+.b-edit-event__title {
+
+    position: relative;
+    margin-left: 12%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+.b-edit-event__button-ok {
+
+    margin: 8px 5px 5px 172px;
+
+}
+
+.b-edit-event__show-edit-event {
+
+    margin-left: 40px;
+
+}
+
+
+
+
+

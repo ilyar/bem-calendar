@@ -5,6 +5,7 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
         renderEvents: function(events) {
             var listElem = this.findElem('list');
 
+            this.events = events;
 
             BEMDOM.update(listElem, '');
 
@@ -37,12 +38,26 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
     {
         live: function() {
 
-             this.liveBindTo('list', 'click', function(){
+            this.liveBindTo('item', 'click', function(e){
+                var inputCont = $(e.currentTarget).text(),
+                    i = 0,
+                    item,
+                    contItem;
 
-                 alert('ПРивет, братишка');
-             })
+                do {
+
+                    item = this.events[i];
+                    contItem = item['hours'] + ':' + item['minutes'] + ' ' + item['name'];
+                    i++;
+
+                } while (i < this.events.length && inputCont != contItem);
+
+                this.findBlockOutside('b-day-planner').findBlockInside('b-edit-event').showEditBox(item, events);
+
+            });
+
+            return false;
         }
-
     });
 
     provide(BEMDOM);

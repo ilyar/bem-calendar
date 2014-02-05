@@ -16,7 +16,6 @@
     width: 20px;
     margin-right: 10px;
 
-
 }
 .b-new-event__title-time
 {
@@ -38,8 +37,9 @@
     display: inline-block;
 
 }
-
-.input_color_red .input__control
+.b-new-event__event-hours_color_red .input__control,
+.b-new-event__event-minutes_color_red .input__control,
+.b-new-event__event-name_color_red .input__control
 {
     color: #555;
     border-bottom: 1px;

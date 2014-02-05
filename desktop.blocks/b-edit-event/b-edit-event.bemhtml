@@ -1,0 +1,26 @@
+block b-edit-event {
+    content:
+     {
+        elem: 'event-box',
+        content: [
+            {
+                elem: 'title',
+                content: 'Редактирование событий'
+            },
+            {
+                block: 'input',
+                mix: [{ block: 'b-edit-event', elem: 'show-edit-event'}]
+            },
+            {
+                block: 'button',
+                content: 'Ok',
+                mix: [{ block: 'b-edit-event', elem: 'button-ok' }]
+            },
+            {
+                block: 'button',
+                content: 'Cancel',
+                mix: [{ block: 'b-edit-event', elem: 'button-cancel'}]
+            }
+        ]
+    }
+}

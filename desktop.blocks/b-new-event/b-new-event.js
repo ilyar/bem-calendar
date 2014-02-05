@@ -18,15 +18,14 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
             var minutes = this.minutesInput.getVal(),
                 hours = this.hoursInput.getVal(),
                 name = this.nameInput.getVal(),
-                // несемантично
-                hoursValid = !hours || (parseInt(hours) <= 0) || (parseInt(hours) >= 24),
-                minutesValid = !minutes || (parseInt(minutes) <= 0) || (parseInt(minutes) >= 60);
+                hoursValid = (parseInt(hours) >= 0) && (parseInt(hours) < 24),
+                minutesValid =(parseInt(minutes) >= 0) && (parseInt(minutes) < 60);
 
-            this.setMod(this.elem('event-hours'), 'color', hoursValid ? 'red' : '');
-            this.minutesInput.setMod('color', minutesValid ? 'red' : '');
-            this.nameInput.setMod('color', !name ? 'red' : '');
+            this.setMod(this.elem('event-hours'), 'color', hoursValid ? '' : 'red');
+            this.setMod(this.elem('event-minutes'), 'color', minutesValid ? '' : 'red');
+            this.setMod(this.elem('event-name'), 'color', name ? '' : 'red');
 
-            !hoursValid && !minutesValid && name &&
+            hoursValid && minutesValid && name &&
                 this.trigger('new-event', {
                     minutes: minutes,
                     hours: hours,
@@ -38,7 +37,3 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
     provide(BEMDOM);
 });
-
-
-
-

@@ -55,21 +55,22 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
                 for (var j = 0; j < i; j++) {
                     var valLeft = parseInt((array[j]['hours'] + '' + array[j]['minutes'])),
                         valRight = parseInt((array[j + 1]['hours'] + '' + array[j + 1]['minutes']));
+                    if (valLeft == valRight) {
+
+                        array.splice(j, 1);
+
+                    }
                     if (valLeft > valRight) {
                         var temp = array[j];
 
                         array[j] = array [j + 1];
                         array[j + 1] = temp;
+
                     }
                 }
             }
         }
-
     });
 
     provide(BEMDOM);
 });
-
-
-
-

@@ -1,6 +1,6 @@
 block b-event {
 
     tag: 'li'
-
-    content: this.ctx.cont
+    content: this.ctx.cont,
+    mix: [{ block: 'b-events-of-day', elem: 'item'}]
 }

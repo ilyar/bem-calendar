@@ -19,6 +19,7 @@ modules.define('i-bem__dom', ['jquery', 'dom', 'events'], function(provide, $, d
 
             }
         },
+
         /**
          *  1. Отображение даты в календаре (элемент 'current-day')
          *  2. Тригерится событие 'change-date' для отправки текущего объекта Date во время смены дня в календаре
