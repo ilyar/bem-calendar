@@ -1,0 +1,20 @@
+{
+  "name": "bem-calendarnpm",
+  "version": "0.1.0",
+  "author": "Maxim <Urukov-Maxim@mail.ru>",
+  "bugs": {
+    "url": "https://github.com/UrukovMaxim/bem-calendar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:UrukovMaxim/bem-calendar.git"
+  },
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "git://github.com/bem/bem-components.git#v2"
+  }
+}
